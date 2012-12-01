@@ -2,15 +2,16 @@
   	<div id="feedback_top"></div>
     <div id="col_gauche">
       <div id="toi">
-        <div id="toi_photo"></div>
+        <div id="toi_photo"><img src="#" width="218" height="218"></div>
         <span id="toi_nom">[Ton nom]</span><br>
         Jukes: <span id="toi_jukes">[#]</span>
       </div>
 
       <div id="moi">
-        <div id="moi_photo"><img src="//<%=session[:current_user].image_url %>" /></div>
+        <div id="moi_photo"><img src="//<%=session[:current_user].image_url %>" width="58" height="58" /></div>
         <span id="moi_nom"><%= session[:current_user].username %></span><br>
-        Jukes: <span id="moi_jukes"><%= session[:current_user].jukes %></span>
+        Jukes: <span id="moi_jukes"><%= session[:current_user].jukes %></span><br>
+        <a id="lnk_logout" href="/logout">Logout</a>
       </div>
     </div>
 
@@ -18,27 +19,27 @@
       <img id="thumb_album"></img>
 
       <form name="frmSuggerer" method="post" action="#">
-        <input type="text" id="txt_suggestion" name="suggestion" required placeholder="Suggérer un morceau...">
+        <input type="text" id="txt_suggestion" name="suggestion" required placeholder="Pick a song...">
         <input type="hidden" id="hid_key_morceau" name="key" required>
-        <input type="submit" id="btn_pis_ca" class="pisCa" name="pisCa" value="Pis ça?">
+        <input type="submit" id="btn_pis_ca" class="pisCa" name="pisCa" value="How about this?">
       </form>
       <span id="feedback_formulaire"></span>
     </div>
 
     <div id="col_droite">
       <div id="infos_morceau">
-        <span id="titre_morceau">[Titre morceau beacoup trop long]</span><br>
-        <span id="artiste_morceau">[Artiste]</span><br>
+        <span id="titre_morceau">[Placeholder for really long song name]</span><br>
+        <span id="artiste_morceau">[Artist]</span><br>
         <span id="album_morceau">[Album]</span>
       </div>
 
       <div id="vox">
-        <a href="#" class="jtrippe">J'trippe!</a>
-        <a href="#" class="paspire">Pas pire pas pire</a>
-        <a href="#" class="bofouin">Bof ouin</a>
+        <a href="#" class="jtrippe">That's dope!</a>
+        <a href="#" class="paspire">Pretty good</a>
+        <a href="#" class="bofouin">Meh.</a>
       </div>
 
-      <a href="#" id="prochain_voxeur">prochain voxeur ></a>
+      <a href="#" id="prochain_voxeur">next voxer ></a>
     </div>
     
     <div id="apiswf"></div>

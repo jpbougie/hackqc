@@ -21,7 +21,7 @@ $(document).ready(function() {
       				   1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
   	
   	$('#feedback_top').hide();
-  	$('#feedback_top').html('C\'est à votre tour de jouer!');
+  	$('#feedback_top').html('It\'s your turn to pick!');
   	$('#feedback_top').slideDown('fast');
   	
   	initAutocomplete();
@@ -78,7 +78,7 @@ function initPisCa() {
   			$(this).empty();
   		});
   		
-  		$('#feedback_formulaire').html('En attente de la prochaine chanson...');
+  		$('#feedback_formulaire').html('Waiting for next song...');
   		$('#feedback_formulaire').fadeIn('fast');
   		
   		//apiswf.rdio_play($('#hid_key_morceau').val());

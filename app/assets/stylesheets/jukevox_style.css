@@ -113,6 +113,11 @@ h1 {
 	padding-bottom: 5px;
 }
 
+#lnk_logout {
+	display: inline-block;
+	padding-top: 4px;
+}
+
 /* COLONNE DU CENTRE
  ********************/
 #col_centre {
@@ -132,7 +137,7 @@ h1 {
 }
 
 #txt_suggestion {
-	width: 328px;
+	width: 303px;
 	border: 1px solid #888;
 	height: 30px;
 	padding: 0 5px;
