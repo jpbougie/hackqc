@@ -78,6 +78,7 @@ function initPisCa() {
   			$(this).empty();
   		});
   		
+  		window.socket.emit("readyForNext");
   		$('#feedback_formulaire').html('En attente de la prochaine chanson...');
   		$('#feedback_formulaire').fadeIn('fast');
   		

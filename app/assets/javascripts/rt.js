@@ -46,5 +46,5 @@ setupJukevox = function(host) {
  * message au serveur que le client est prêt pour une nouvelle chanson.
  */
 function fireReadyForNext() {
-	socket.emit('readyForNext');
+  socket.emit('readyForNext');
 }
