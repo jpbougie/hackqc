@@ -19,12 +19,13 @@
     <div id="col_centre">
       <img id="thumb_album"></img>
 
-      <form name="frmSuggerer" method="post" action="#">
+      <form id="frm_suggerer" name="frmSuggerer" method="post" action="#">
         <input type="text" id="txt_suggestion" name="suggestion" required placeholder="Pick a song...">
         <input type="hidden" id="hid_key_morceau" name="key" required>
-        <input type="submit" id="btn_pis_ca" class="pisCa" name="pisCa" value="How about this?">
+        <input type="submit" id="btn_pis_ca" class="pisCa" name="pisCa" value="How about this?"><br>
+        <span id="feedback_formulaire"></span>
       </form>
-      <span id="feedback_formulaire"></span>
+      
     </div>
 
     <div id="col_droite">

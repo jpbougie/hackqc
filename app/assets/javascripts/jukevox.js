@@ -22,8 +22,6 @@ $(document).ready(function() {
       				   1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
   	
   	$('#feedback_top').hide();
-  	$('#feedback_top').html('It\'s your turn to pick!');
-  	$('#feedback_top').slideDown('fast');
   	
   	initAutocomplete();
   	initPisCa();

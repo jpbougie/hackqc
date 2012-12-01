@@ -11,6 +11,10 @@ setupJukevox = function(host) {
     });
 
     socket.on('waiting', function(data) {
+      $('#feedback_top').html('It\'s your turn to pick!');
+  	  $('#feedback_top').slideDown('fast');
+  	  $('#frm_suggerer').fadeIn('fast');
+  	  
       debug("Waiting for an opponent...");
     });
 
@@ -30,9 +34,20 @@ setupJukevox = function(host) {
 
     socket.on('play', function(data) {
       apiswf.rdio_play(data.song);
-      $('#feedback_formulaire').fadeOut('fast', function() {
-        $(this).empty();
-      });
+            
+      // Si c'est le tour de l'autre à jouer
+      var toiId = $('#toi_id').html();
+      if (data.turn == toiId) {
+        $('#frm_suggerer').fadeOut('fast', function() {
+          $('#feedback_formulaire').empty();
+        });
+      }
+      else {
+        $('#feedback_top').html('It\'s your turn to pick!');
+  	    $('#feedback_top').slideDown('fast');
+  	    $('#frm_suggerer').fadeIn('fast');
+      }
+      
       setTimeout(fireReadyForNext, 30000);
     });
 
