@@ -2,8 +2,9 @@ function debug(msg) {
   $('#log').append('<div>' + msg + '</div>');
 };
 
-setupJukevox = function() {
-    window.socket = io.connect('http://localhost:9191');
+setupJukevox = function(host) {
+  return function() {
+    window.socket = io.connect(host);
     socket.on('authChallenge', function (data) {
       debug("Challenged for auth by server");
       socket.emit("authResponse", user);
@@ -20,4 +21,5 @@ setupJukevox = function() {
     socket.on("matchEnded", function() {
       debug("Match ended");
     });
+  };
 };
