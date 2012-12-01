@@ -11,6 +11,6 @@ if (domain == 'localhost') {
 }
 // Token authentifié
 else {
-  window.playback_token = "GAxQunzU_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmpwYm91Z2llLmNvbRrwa0FXk57zdUyfzW9ovRQ";
+  window.playback_token = "GAxQunzU_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmpwYm91Z2llLmNvbRrwa0FXk57zdUyfzW9ovRQ=";
 }
 

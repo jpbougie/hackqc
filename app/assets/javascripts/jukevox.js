@@ -114,7 +114,7 @@ function initVotes() {
 function traiterEnvoiJukes(differentiel) {
 	var toiId = $('#toi_id').html();
 		
-	$.post('users/' + toiId + '/' + differentiel, null, function(data) {
+	$.post('users/' + toiId + '/vote?vote=' + differentiel, null, function(data) {
 		$('#toi_jukes').html(data);
 	});
 }
