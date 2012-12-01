@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore OSX annoying files
+app/assets/images/.DS_Store
+app/views/application/.DS_Store
+public/images/.DS_Store
+
