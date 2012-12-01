@@ -41,6 +41,7 @@ setupJukevox = function(host) {
       var toiId = $('#toi_id').html();
       if (data.turn == toiId) {
         $('#frm_suggerer').fadeOut('fast');
+        $('#coming_up_next').fadeOut('fast');
       }
       else {
         $('#feedback_top').html('It\'s your turn to pick!');
