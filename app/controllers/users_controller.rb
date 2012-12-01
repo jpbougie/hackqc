@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.jukes += params[:vote].to_i
     @user.save
     REDIS.publish 'jukevox', {:user_id => @user.id, :jukes => @user.jukes, :type => 'jukes_update'}.to_json
-    render :json => @user
+    render :json => @user.jukes
   end
 
   protected
