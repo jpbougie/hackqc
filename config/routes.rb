@@ -2,6 +2,8 @@ Hackqc::Application.routes.draw do
 
   root :to => 'application#index'
   get :suggestions, :controller => 'application'
+  post :login, :controller => 'users'
+  post '/user/:user_id/vote'
   match '/auth/:provider/callback', to: 'sessions#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
