@@ -26,12 +26,12 @@ setupJukevox = function(host) {
     });
     
     socket.on('play', function(data) {
-  		apiswf.rdio_play(data.song);
-  		$('#feedback_formulaire').fadeOut('fast', function() {
-  			$(this).empty();
-  		});
-  		setTimeout(fireReadyForNext, 30000);
-  	});
+      apiswf.rdio_play(data.song);
+      $('#feedback_formulaire').fadeOut('fast', function() {
+        $(this).empty();
+      });
+      setTimeout(fireReadyForNext, 30000);
+    });
 
     $('#prochain_voxeur').click(function() {
       socket.emit("skip");
