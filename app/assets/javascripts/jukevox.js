@@ -22,6 +22,7 @@ $(document).ready(function() {
       				   1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
   	
   	$('#feedback_top').hide();
+  	$('#frm_suggerer').hide();
   	
   	initAutocomplete();
   	initPisCa();

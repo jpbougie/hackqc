@@ -13,7 +13,9 @@ setupJukevox = function(host) {
     socket.on('waiting', function(data) {
       $('#feedback_top').html('It\'s your turn to pick!');
   	  $('#feedback_top').slideDown('fast');
-  	  $('#frm_suggerer').fadeIn('fast');
+  	  $('#coming_up_next').fadeOut('fast', function() {
+  	    $('#frm_suggerer').slideDown('fast');
+  	  });
   	  
       debug("Waiting for an opponent...");
     });
