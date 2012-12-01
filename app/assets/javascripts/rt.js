@@ -36,6 +36,10 @@ setupJukevox = function(host) {
       setTimeout(fireReadyForNext, 30000);
     });
 
+    socket.on("jukesUpdated", function(jukes) {
+      $('#moi_jukes').html(jukes);
+    })
+
     $('#prochain_voxeur').click(function() {
       socket.emit("skip");
     });
