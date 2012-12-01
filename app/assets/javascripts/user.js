@@ -1,3 +1,3 @@
 function getUserByToken(token, callback) {
-  $.get('/users/' + token, callback);
+  $.getJSON('/users/' + token, callback);
 }
