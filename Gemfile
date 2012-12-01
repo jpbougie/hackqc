@@ -20,6 +20,8 @@ end
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'rdio_api'
+gem 'omniauth'
+gem 'omniauth-rdio'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
