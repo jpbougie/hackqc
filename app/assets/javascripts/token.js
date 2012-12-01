@@ -7,8 +7,8 @@ var domain = location.hostname;
 
 // Token de développement localhost
 if (domain == 'localhost')
-	var playback_token = "GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=";
+  window.playback_token = "GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=";
 // Token authentifié
 else
-	var playback_token = "GABQunkY_____3o3eXd2cng5MnNqOW1lenByam55ejNhaIhdYCWF6dN36iT9xZ54R78=";
+	window.playback_token = "GAxQunzU_____2R2cHlzNHd5ZXg3Z2M0OXdoaDY3aHdrbmpwYm91Z2llLmNvbRrwa0FXk57zdUyfzW9ovRQ";
 
