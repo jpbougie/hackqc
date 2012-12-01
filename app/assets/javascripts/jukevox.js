@@ -27,6 +27,7 @@ $(document).ready(function() {
   	
   	initAutocomplete();
   	initPisCa();
+  	initVotes();
 });
 
 /**
@@ -85,6 +86,38 @@ function initPisCa() {
   		
   		//apiswf.rdio_play($('#hid_key_morceau').val());
   	});
+}
+
+/**
+ * Initialise les boutons de vote
+ */
+function initVotes() {
+	$('.jtrippe').click(function(e) {
+		e.preventDefault();
+		traiterEnvoiJukes('2');
+	});
+	
+	$('.paspire').click(function(e) {
+		e.preventDefault();
+		traiterEnvoiJukes('1');
+	});
+	
+	$('.bofouin').click(function(e) {
+		e.preventDefault();
+		traiterEnvoiJukes('-1');
+	});	
+}
+
+/**
+ * Envoie le message au serveur, qui lui retourne les jukes actuels de l'adversaire
+ * @param La différence à appliquer sur les jukes de l'adversaire
+ */
+function traiterEnvoiJukes(differentiel) {
+	var toiId = $('#toi_id').html();
+		
+	$.get('users/' + toiId + '/' + differentiel, null, function(data) {
+		$('#toi_jukes').html(data);
+	});
 }
 
 /*********

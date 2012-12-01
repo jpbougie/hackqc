@@ -71,7 +71,7 @@ h1 {
 	font-family: 'Montserrat', sans-serif;
 	height: 32.8em;
 }
-
+	
 #toi_photo {
 	border: 1px solid black;
 	width: 218px;
@@ -88,6 +88,10 @@ h1 {
 
 #toi_jukes, #moi_jukes {
 	font-weight: bold;
+}
+
+#toi_id {
+	visibility: hidden;
 }
 
 #moi {
