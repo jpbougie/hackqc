@@ -16,10 +16,17 @@ setupJukevox = function(host) {
 
     socket.on('matchFound', function(data) { 
       debug("Opponent found: " + data.other)
+      getUserByToken(data.other, function() {
+
+      })
     });
 
     socket.on("matchEnded", function() {
       debug("Match ended");
+    });
+
+    $('#prochain_voxeur').click(function() {
+      socket.emit("skip");
     });
   };
 };
