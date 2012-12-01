@@ -24,6 +24,8 @@ $(document).ready(function() {
   	$('#feedback_top').hide();
   	$('#frm_suggerer').hide();
   	$('#coming_up_next').hide();
+  	$('#toi').hide();
+  	$('#waiting_for_opponent').hide();
   	
   	initAutocomplete();
   	initPisCa();

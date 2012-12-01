@@ -7,13 +7,13 @@ setupJukevox = function(host) {
     var didWait = false;
     window.socket = io.connect(host);
     
-    // AUTHENTIFICATION
+    /**** AUTHENTIFICATION ****/
     socket.on('authChallenge', function (data) {
       debug("Challenged for auth by server");
       socket.emit("authResponse", user);
     });
 
-    // EN ATTENTE D'UN JOUEUR
+    /**** EN ATTENTE D'UN JOUEUR ****/
     socket.on('waiting', function(data) {
       didWait = true;
       $('#feedback_top').html('It\'s your turn to pick!');
@@ -22,10 +22,12 @@ setupJukevox = function(host) {
   	    $('#frm_suggerer').slideDown('fast');
   	  });
   	  
+  	  $('#waiting_for_opponent').fadeIn('fast');
+  	  
       debug("Waiting for an opponent...");
     });
 
-    // MATCH TROUVÉ
+    /**** MATCH TROUVÉ ****/
     socket.on('matchFound', function(data) {
       if (didWait)
       	didWait = false;
@@ -38,15 +40,22 @@ setupJukevox = function(host) {
         $("#toi_photo").html("<img src=\"//" + data.image_url + "\" />");
         $('#toi_nom').html(data.username);
         $('#toi_jukes').html(data.jukes);
+        
+        $('#waiting_for_opponent').fadeOut('fast', function() {
+          $('#toi').fadeIn('fast');
+        });
       });
     });
 
-    // MATCH TERMINÉ
+    /**** MATCH TERMINÉ ****/
     socket.on("matchEnded", function() {
+      $('#toi').fadeOut('fast', function() {
+      	$('#waiting_for_opponent').fadeIn('fast');
+      });
       debug("Match ended");
     });
 
-    // TOUNE COMMENCE À JOUER
+    /**** TOUNE COMMENCE À JOUER ****/
     socket.on('play', function(data) {
       apiswf.rdio_play(data.song);
             
@@ -69,12 +78,12 @@ setupJukevox = function(host) {
       setTimeout(fireReadyForNext, 30000);
     });
 
-    // JUKES UPDATE
+    /**** JUKES UPDATE ****/
     socket.on("jukesUpdated", function(jukes) {
       $('#moi_jukes').html(jukes);
     })
 
-    // CLIC SUR PROCHAIN VOXEUR
+    /**** CLIC SUR PROCHAIN VOXEUR ****/
     $('#prochain_voxeur').click(function() {
       socket.emit("skip");
     });

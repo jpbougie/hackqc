@@ -66,10 +66,13 @@ h1 {
 	/* background-color: #ccc; */
 }
 
+#wrapper_toi {
+	height: 32.8em;
+}
+
 #toi {
 	font-size: 1.4em;
 	font-family: 'Montserrat', sans-serif;
-	height: 32.8em;
 }
 	
 #toi_photo {
