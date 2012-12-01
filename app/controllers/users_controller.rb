@@ -5,15 +5,26 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-  def login
-    user = RDIO.findUser('vanityName' => params[:username])
-    if user
-      @user = User.find_or_create_by(:username => params[:username], :is_linked => true,
-                                     :image_url => "cdn3.rd.io/#{user.baseIcon}", :profile_url => user.url)
-    else
-      @user = User.find_or_create_by(:username => params[:username])
-    end
+  def edit
+    @user = User.find(params[:user_id])
     render :json => @user
+  end
+
+  def login
+    if request.post?
+      user = RDIO.findUser('vanityName' => params[:username])
+      if user
+        @user = User.find_or_create_by(:username => params[:username], :is_linked => true,
+                                       :image_url => "cdn3.rd.io/#{user.baseIcon}", :profile_url => "rd.io/#{user.url}")
+      else
+        @user = User.find_or_create_by(:username => params[:username])
+      end
+      session[:current_user] = @user
+      #render :json => @user
+      redirect_to '/'
+    else
+
+    end
   end
 
   def vote

@@ -56,6 +56,6 @@
 <div id="apiswf"></div>
 
 <script>
-var user = {token: Math.floor(Math.random() * 100000), name: "JP" + Math.floor(Math.random() * 100)};
+var user = <%= session[:current_user].to_json.html_safe %>;
 $(setupJukevox("http://jpbougie.com:9191"));
 </script>

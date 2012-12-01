@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def index
+    redirect_to '/login' unless session[:current_user]
   end
 
   def suggestions
