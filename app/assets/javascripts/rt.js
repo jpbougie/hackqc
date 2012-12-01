@@ -17,9 +17,9 @@ setupJukevox = function(host) {
     socket.on('matchFound', function(data) { 
       debug("Opponent found: " + data.other);
       getUserByToken(data.other, function(data) {
-        $("#toi_photo").html("<img src=\"" + data.profile_url + "\" />");
-        $('#toi_nom').val(data.username);
-        $('#toi_jukes').val(data.jukes);
+        $("#toi_photo").html("<img src=\"//" + data.image_url + "\" />");
+        $('#toi_nom').html(data.username);
+        $('#toi_jukes').html(data.jukes);
       });
     });
 
