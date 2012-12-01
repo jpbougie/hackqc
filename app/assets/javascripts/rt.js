@@ -21,5 +21,21 @@ setupJukevox = function(host) {
     socket.on("matchEnded", function() {
       debug("Match ended");
     });
+    
+    socket.on('play', function(data) {
+  		apiswf.rdio_play(data.song);
+  		$('#feedback_formulaire').fadeOut('fast', function() {
+  			$(this).empty();
+  		});
+  		setTimeout(fireReadyForNext, 30000);
+  	});
   };
 };
+
+/**
+ * Fonction appelée par une minuterie lorsque 30 secondes sont écoulées. Envoie le 
+ * message au serveur que le client est prêt pour une nouvelle chanson.
+ */
+function fireReadyForNext() {
+	socket.emit('readyForNext');
+}

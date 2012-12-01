@@ -19,18 +19,19 @@ $(document).ready(function() {
   	swfobject.embedSWF('http://www.rdio.com/api/swf/',
       				   'apiswf',
       				   1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
-
-	// Contrôles temporaires
-	$('#play').click(function() {
-    	apiswf.rdio_play('a997982');
-  	});
-  	$('#stop').click(function() { apiswf.rdio_stop(); });
-  	$('#pause').click(function() { apiswf.rdio_pause(); });
-  	$('#previous').click(function() { apiswf.rdio_previous(); });
-  	$('#next').click(function() { apiswf.rdio_next(); });
   	
-  	// Configuration de l'autocomplete
-  	$('#txt_suggestion').autocomplete({
+  	$('#feedback_top').hide();
+  	$('#feedback_top').html('C\'est à votre tour de jouer!');
+  	$('#feedback_top').slideDown('fast');
+  	initAutocomplete();
+  	initPisCa();
+});
+
+/**
+ * Initialise le champ autocomplete pour choisir une chanson
+ */
+function initAutocomplete() {
+	$('#txt_suggestion').autocomplete({
   		source: function(request, response) {
                 $.ajax({
                     url: "/suggestions",
@@ -59,27 +60,41 @@ $(document).ready(function() {
                 $(this).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
             }
   	});
-});
+  	
+  	$('#feedback_formulaire').hide();
+}
 
+/** 
+ * Initialise le bouton "Pis ça?" qui permet de proposer une chanson
+ */
+function initPisCa() {
+  	$('#btn_pis_ca').click(function(e) {
+  		e.preventDefault();
+  		var key = $('#hid_key_morceau').val();
+  		window.socket.emit('nextSong', key);
+  		
+  		$('#feedback_top').slideUp('fast', function() {
+  			$(this).empty();
+  		});
+  		
+  		$('#feedback_formulaire').html('En attente de la prochaine chanson...');
+  		$('#feedback_formulaire').fadeIn('fast');
+  		
+  		//apiswf.rdio_play($('#hid_key_morceau').val());
+  	});
+}
+
+/*********
+ * CONFIGURATION RDIO WEB PLAYBACK API
+ ***********/
 // Objet de callback
 var rdio_cb = {};
 
 // INITIALISATION
 rdio_cb.ready = function ready(user) {
   	apiswf = $('#apiswf').get(0);
-	apiswf.rdio_setVolume(1);
 
   	console.log(user);
-}
-
-rdio_cb.freeRemainingChanged = function freeRemainingChanged(remaining) {
-  $('#remaining').text(remaining);
-}
-
-rdio_cb.playStateChanged = function playStateChanged(playState) {
-  // The playback state has changed.
-  // The state can be: 0 - paused, 1 - playing, 2 - stopped, 3 - buffering or 4 - paused.
-  $('#playState').text(playState);
 }
 
 rdio_cb.playingTrackChanged = function playingTrackChanged(playingTrack, sourcePosition) {
@@ -91,53 +106,4 @@ rdio_cb.playingTrackChanged = function playingTrackChanged(playingTrack, sourceP
     $('#artiste_morceau').text(playingTrack['artist']);
     $('#thumb_album').attr('src', playingTrack['icon']);
   }
-}
-
-rdio_cb.playingSourceChanged = function playingSourceChanged(playingSource) {
-  // The currently playing source changed.
-  // The source metadata, including a track listing is inside playingSource.
-}
-
-rdio_cb.volumeChanged = function volumeChanged(volume) {
-  // The volume changed to volume, a number between 0 and 1.
-}
-
-rdio_cb.muteChanged = function muteChanged(mute) {
-  // Mute was changed. mute will either be true (for muting enabled) or false (for muting disabled).
-}
-
-rdio_cb.positionChanged = function positionChanged(position) {
-  //The position within the track changed to position seconds.
-  // This happens both in response to a seek and during playback.
-  $('#position').text(position);
-}
-
-rdio_cb.queueChanged = function queueChanged(newQueue) {
-  // The queue has changed to newQueue.
-}
-
-rdio_cb.shuffleChanged = function shuffleChanged(shuffle) {
-  // The shuffle mode has changed.
-  // shuffle is a boolean, true for shuffle, false for normal playback order.
-}
-
-rdio_cb.repeatChanged = function repeatChanged(repeatMode) {
-  // The repeat mode change.
-  // repeatMode will be one of: 0: no-repeat, 1: track-repeat or 2: whole-source-repeat.
-}
-
-rdio_cb.playingSomewhereElse = function playingSomewhereElse() {
-  // An Rdio user can only play from one location at a time.
-  // If playback begins somewhere else then playback will stop and this callback will be called.
-}
-
-rdio_cb.updateFrequencyData = function updateFrequencyData(arrayAsString) {
-  // Called with frequency information after apiswf.rdio_startFrequencyAnalyzer(options) is called.
-  // arrayAsString is a list of comma separated floats.
-
-  var arr = arrayAsString.split(',');
-
-  $('#freq div').each(function(i) {
-    $(this).width(parseInt(parseFloat(arr[i])*500));
-  })
 }
