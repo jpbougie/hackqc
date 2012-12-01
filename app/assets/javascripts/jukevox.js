@@ -61,8 +61,6 @@ function initAutocomplete() {
                 $(this).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
             }
   	});
-  	
-  	$('#feedback_formulaire').hide();
 }
 
 /** 
@@ -79,8 +77,11 @@ function initPisCa() {
   		});
   		
   		window.socket.emit("readyForNext");
-  		$('#feedback_formulaire').html('Waiting for next song...');
-  		$('#feedback_formulaire').fadeIn('fast');
+  		$('#frm_suggerer').slideUp('fast', function() {
+  		  var labelMorceau = $('#txt_suggestion').val();
+  		  $('#coming_up_next > span').html(labelMorceau);
+  		  $('#coming_up_next').fadeIn('fast');
+  		});
   		
   		//apiswf.rdio_play($('#hid_key_morceau').val());
   	});

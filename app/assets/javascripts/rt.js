@@ -38,14 +38,14 @@ setupJukevox = function(host) {
       // Si c'est le tour de l'autre à jouer
       var toiId = $('#toi_id').html();
       if (data.turn == toiId) {
-        $('#frm_suggerer').fadeOut('fast', function() {
-          $('#feedback_formulaire').empty();
-        });
+        $('#frm_suggerer').fadeOut('fast');
       }
       else {
         $('#feedback_top').html('It\'s your turn to pick!');
   	    $('#feedback_top').slideDown('fast');
-  	    $('#frm_suggerer').fadeIn('fast');
+  	    $('#coming_up_next').fadeOut('fast', function() {
+  	      $('#frm_suggerer').slideDown('fast');
+  	    });
       }
       
       setTimeout(fireReadyForNext, 30000);
