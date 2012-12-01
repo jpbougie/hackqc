@@ -1,2 +1,15 @@
-<form method="POST">
-  <label>Login with your rdio username <input type="text" name="username" /></label>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#lnk_login").click(function(e) {
+			e.preventDefault();
+			$("#frm_login").submit();
+		});
+	});
+</script>
+
+<form id="frm_login" method="POST">
+  <label for="txt_username">Login with your <img src="/images/rdio.png" alt="Rdio logo"> account</label><br>
+  <input type="text" id="txt_username" name="username" required placeholder="Rdio username"><br>
+  <input type="submit" id="btn_login" value="Go!">
+  <a id="lnk_login" href="#">Go!</a>
+</form>

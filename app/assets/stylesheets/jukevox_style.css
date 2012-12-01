@@ -4,13 +4,22 @@
  *********************/
 
 /* STRUCTURE DE BASE */
+body {
+	background: url('/images/subtle_dots.png') center;
+}
+
+h1 {
+	float: left;
+	text-indent: -9000em;
+}
+
 #wrap_header {
-	background-color: black;
+	background: url('/images/stressed_linen.png') center;
 }
 
 #header {
 	width: 960px;
-	height: 170px;
+	height: 130px;
 	margin: auto;
 	
 }
@@ -174,4 +183,55 @@
 	font-size: 1.4em;
 	padding-top: 10px;
 	color: #09F;
+}
+
+/* PAGE DE LOGIN
+ ******************/
+#frm_login {
+	width: 520px;
+	margin: 100px auto;
+}
+
+#frm_login label {
+	display: inline-block;
+	width: 520px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+	color: #444;
+	padding-bottom: 30px;
+}
+
+#frm_login label img {
+	position: relative;
+	top: 4px;
+}
+
+#txt_username {
+	width: 496px;
+	padding: 10px;
+	font-size: 1.8em;
+	text-align: center;
+	margin: auto;
+	color: #888;
+	margin-bottom: 30px;
+}
+
+#btn_login {
+	display: none;
+}
+
+#lnk_login:link, #lnk_login:visited {
+	display: block;
+	width: 500px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 1.8em;
+	padding: 15px 10px;
+	background-color: #2B89ED;
+	color: white;
+}
+
+#lnk_login:hover, #lnk_login:active {
+	background-color: #2D76C4;
 }

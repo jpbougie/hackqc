@@ -23,6 +23,7 @@ $(document).ready(function() {
   	$('#feedback_top').hide();
   	$('#feedback_top').html('C\'est à votre tour de jouer!');
   	$('#feedback_top').slideDown('fast');
+  	
   	initAutocomplete();
   	initPisCa();
 });
