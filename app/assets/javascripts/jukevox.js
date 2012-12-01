@@ -6,7 +6,6 @@
 var apiswf = null;
 
 $(document).ready(function() {
-	alert('Allô');
   	// on page load use SWFObject to load the API swf into div#apiswf
 	var flashvars = {
 		'playbackToken': playback_token, // from token.js
