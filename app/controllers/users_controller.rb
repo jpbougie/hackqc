@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   layout "application"
   def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
+    @user = User.find_or_create_from(:auth_hash => auth_hash)
+    session[:current_user] = @user
     redirect_to '/'
   end
 
@@ -36,8 +36,9 @@ class UsersController < ApplicationController
   def vote
     @user = User.find(params[:user_id])
     @user.jukes += params[:vote].to_i
+    @user.save
     REDIS.publish 'jukevox', {:user_id => @user.id, :jukes => @user.jukes, :type => 'jukes_update'}.to_json
-    render :json => @user
+    render :json => @user.jukes
   end
 
   protected
