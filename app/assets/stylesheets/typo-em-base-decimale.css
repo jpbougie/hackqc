@@ -1,0 +1,34 @@
+/**
+ * Contrôle typographique sur une base décimale 
+ * @author Robert Nyman
+ * source: http://www.pompage.net/traduction/definir-des-tailles-de-polices-en-CSS
+ */ 
+html{
+    font-size: 100%;    
+}
+
+body{
+    /* La taille de base sera de 10px avec les valeurs par défaut de police du navigateur */
+    font: 0.625em Verdana, Geneva, Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+
+input, select, textarea{
+    font-size: 100%;
+}
+
+h1{
+    /* Par défaut, ce texte s'affichera à 20px */
+    font: 2em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+h2{
+    /* Par défaut, ce texte s'affichera à 15px */
+    font: 1.5em/1em Arial, Helvetica, sans-serif;
+}
+
+h3{
+    /* Par défaut, ce texte s'affichera à 12px */
+    font: bold 1.2em/1em Verdana, Geneva, Arial, Helvetica, sans-serif;
+}    
+

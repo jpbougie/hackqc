@@ -1,0 +1,149 @@
+/**
+ * jukevox_style.css
+ * @author Frédéric Bolduc
+ *********************/
+
+/* STRUCTURE DE BASE */
+#wrap_header {
+	background-color: black;
+}
+
+#header {
+	width: 960px;
+	height: 200px;
+	margin: auto;
+	
+}
+
+#wrap_corps {
+	/*background-color: gray; */	
+}
+
+#corps {
+	width: 960px;
+	min-height: 500px;
+	margin: 20px auto 0 auto;
+	/* background-color: white; */
+}
+
+/* HEADER 
+ ************/
+#logo {
+	margin: auto;
+	position: relative;
+	top: 0.1em;
+	width: 500px;
+	height: 160px;
+	background: url('/images/logo.png') no-repeat;
+}
+
+/* COLONNE DE GAUCHE
+ *******************/
+#col_gauche {
+	float: left;
+	margin: 0 10px;
+	width: 220px;
+	min-height: 500px;
+	/* background-color: #ccc; */
+}
+
+#toi {
+	font-size: 1.4em;
+	height: 35.7em;
+}
+
+#toi_photo {
+	border: 1px solid black;
+	width: 218px;
+	height: 218px;
+	margin-bottom: 10px;
+}
+
+#toi_nom {
+	display: inline-block;
+	font-size: 1.4em;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+#toi_jukes, #moi_jukes {
+	font-weight: bold;
+}
+
+#moi {
+	font-size: 1.2em;
+	text-align: right;
+}
+
+#moi_photo {
+	float: right;
+	width: 58px;
+	height: 58px;
+	border: 1px solid black;
+	margin-left: 20px;
+}
+
+#moi_nom {
+	font-size: 1.3em;
+	font-weight: bold;
+	display: inline-block;
+	padding-bottom: 5px;
+}
+
+/* COLONNE DU CENTRE
+ ********************/
+#col_centre {
+	float: left;
+	margin: 0 10px;
+	width: 460px;
+	min-height: 500px;
+	/* background-color: #bbb; */
+}
+
+#thumb_album {
+	border: 1px solid black;
+	width: 458px;
+	height: 458px;
+	
+	margin-bottom: 4em;
+}
+
+#txt_suggestion {
+	width: 328px;
+	border: 1px solid #888;
+	height: 30px;
+	padding: 0 5px;
+	font-size: 1.2em;
+}
+
+/* COLONNE DE DROITE
+ ********************/
+#col_droite {
+	float: left;
+	margin: 0 10px;
+	width: 220px;
+	min-height: 500px;
+	/* background-color: #ccc; */
+}
+
+#infos_morceau {
+	height: 25em;	
+}
+
+#titre_morceau {
+	font-size: 1.8em;
+	display: inline-block;
+	padding-bottom: 5px;
+}
+
+#artiste_morceau {
+	font-size: 1.4em;
+	font-weight: bold;	
+}
+
+#prochain_voxeur {
+	float: right;
+	font-size: 1.4em;
+	padding-top: 10px;
+	color: #09F;
+}
