@@ -7,7 +7,7 @@ var apiswf = null;
 
 $(document).ready(function() {
 	var flashvars = {
-	  'debug': true,
+	  'enableLogging': 1,
 		'playbackToken': playback_token, // from token.js
 		'domain': domain,                // from token.js
 		'listener': 'rdio_cb'    // the global name of the object that will receive callbacks from the SWF
