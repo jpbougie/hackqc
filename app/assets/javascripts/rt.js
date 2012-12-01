@@ -16,6 +16,9 @@ setupJukevox = function(host) {
 
     socket.on('matchFound', function(data) { 
       debug("Opponent found: " + data.other)
+      getUserByToken(data.other, function() {
+
+      })
     });
 
     socket.on("matchEnded", function() {
@@ -29,6 +32,10 @@ setupJukevox = function(host) {
   		});
   		setTimeout(fireReadyForNext, 30000);
   	});
+
+    $('#prochain_voxeur').click(function() {
+      socket.emit("skip");
+    });
   };
 };
 
