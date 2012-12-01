@@ -23,6 +23,7 @@ $(document).ready(function() {
   	
   	$('#feedback_top').hide();
   	$('#frm_suggerer').hide();
+  	$('#coming_up_next').hide();
   	
   	initAutocomplete();
   	initPisCa();
@@ -68,7 +69,8 @@ function initAutocomplete() {
  * Initialise le bouton "Pis ça?" qui permet de proposer une chanson
  */
 function initPisCa() {
-  	$('#btn_pis_ca').click(function(e) {
+    // CLIC SUR WHAT ABOUT THIS
+    $('#btn_pis_ca').click(function(e) {
   		e.preventDefault();
   		var key = $('#hid_key_morceau').val();
   		window.socket.emit('nextSong', key);
@@ -81,6 +83,7 @@ function initPisCa() {
   		$('#frm_suggerer').slideUp('fast', function() {
   		  var labelMorceau = $('#txt_suggestion').val();
   		  $('#coming_up_next > span').html(labelMorceau);
+  		  $('#txt_suggestion').val('');
   		  $('#coming_up_next').fadeIn('fast');
   		});
   		
