@@ -12,7 +12,6 @@ $(document).ready(function() {
 		'domain': domain,                // from token.js
 		'listener': 'rdio_cb'    // the global name of the object that will receive callbacks from the SWF
 	};
-	alert(flashvars);
 	var params = {
 		'allowScriptAccess': 'always'
 	};
