@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   def logout
     session[:current_user] = nil
+    redirect_to '/login'
   end
 
   def vote
