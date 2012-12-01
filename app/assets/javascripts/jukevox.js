@@ -6,7 +6,6 @@
 var apiswf = null;
 
 $(document).ready(function() {
-  	// on page load use SWFObject to load the API swf into div#apiswf
 	var flashvars = {
 		'playbackToken': playback_token, // from token.js
 		'domain': domain,                // from token.js
@@ -17,11 +16,11 @@ $(document).ready(function() {
 	};
   	var attributes = {};
   	
-  	swfobject.embedSWF('http://www.rdio.com/api/swf/', // the location of the Rdio Playback API SWF
-      				   'apiswf', // the ID of the element that will be replaced with the SWF
+  	swfobject.embedSWF('http://www.rdio.com/api/swf/',
+      				   'apiswf',
       				   1, 1, '9.0.0', 'expressInstall.swf', flashvars, params, attributes);
 
-	// set up the controls
+	// Contrôles temporaires
 	$('#play').click(function() {
     	apiswf.rdio_play('a997982');
   	});
@@ -29,6 +28,38 @@ $(document).ready(function() {
   	$('#pause').click(function() { apiswf.rdio_pause(); });
   	$('#previous').click(function() { apiswf.rdio_previous(); });
   	$('#next').click(function() { apiswf.rdio_next(); });
+  	
+  	// Configuration de l'autocomplete
+  	$('#txt_suggestion').autocomplete({
+  		source: function(request, response) {
+                $.ajax({
+                    url: "/suggestions",
+                    dataType: "json",
+                    data: {
+                        query: $('#txt_suggestion').val()
+                    },
+                    success: function( data ) {
+                        response( $.map( data, function( item ) {
+                            return {
+                                label: item.artist + ' - ' + item.name,
+                                value: item.key
+                            }
+                        }));
+                    }
+                });
+            },
+            minLength: 2,
+            select: function(event, ui) {
+                $(this).val(ui.item.label);
+                $('#hid_key_morceau').val(ui.item.value);
+            },
+            open: function() {
+                $(this).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+            },
+            close: function() {
+                $(this).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+            }
+  	});
 });
 
 // Objet de callback
