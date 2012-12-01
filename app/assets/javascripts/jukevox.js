@@ -41,8 +41,8 @@ $(document).ready(function() {
                     success: function( data ) {
                         response( $.map( data, function( item ) {
                             return {
-                                label: item.artist + ' - ' + item.name,
-                                value: item.key
+                                value: item.artist + ' - ' + item.name,
+                                key: item.key
                             }
                         }));
                     }
@@ -50,8 +50,7 @@ $(document).ready(function() {
             },
             minLength: 2,
             select: function(event, ui) {
-                $(this).val(ui.item.label);
-                $('#hid_key_morceau').val(ui.item.value);
+                $('#hid_key_morceau').val(ui.item.key);
             },
             open: function() {
                 $(this).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
@@ -69,24 +68,6 @@ var rdio_cb = {};
 rdio_cb.ready = function ready(user) {
   	apiswf = $('#apiswf').get(0);
 	apiswf.rdio_setVolume(1);
-
-  /*apiswf.rdio_startFrequencyAnalyzer({
-    frequencies: '10-band',
-    period: 100
-  });*/
-
-  /*if (user == null) {
-    $('#nobody').show();
-  } else if (user.isSubscriber) {
-    $('#subscriber').show();
-  } else if (user.isTrial) {
-    $('#trial').show();
-  } else if (user.isFree) {
-    $('#remaining').text(user.freeRemaining);
-    $('#free').show();
-  } else {
-    $('#nobody').show();
-  }*/
 
   	console.log(user);
 }
