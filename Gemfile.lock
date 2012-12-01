@@ -109,6 +109,7 @@ GEM
       simple_oauth (~> 0.1.5)
     rdoc (3.12)
       json (~> 1.4)
+    redis (3.0.1)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -142,5 +143,6 @@ DEPENDENCIES
   puma (~> 2.0.0.b3)
   rails (= 3.2.9)
   rdio_api
+  redis
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
