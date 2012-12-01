@@ -36,7 +36,7 @@
 }
 
 /* COLONNE DE GAUCHE
- *******************/
+ ***********************/
 #col_gauche {
 	float: left;
 	margin: 0 10px;
@@ -47,7 +47,8 @@
 
 #toi {
 	font-size: 1.4em;
-	height: 35.7em;
+	font-family: 'Montserrat', sans-serif;
+	height: 32.8em;
 }
 
 #toi_photo {
@@ -69,7 +70,10 @@
 }
 
 #moi {
+	background: url('/images/spacer.png') no-repeat top center;
+	padding-top: 2.7em;
 	font-size: 1.2em;
+	font-family: 'Montserrat', sans-serif;
 	text-align: right;
 }
 
@@ -125,7 +129,8 @@
 }
 
 #infos_morceau {
-	height: 25em;	
+	height: 25em;
+	font-family: 'Montserrat', sans-serif;	
 }
 
 #titre_morceau {
@@ -137,6 +142,12 @@
 #artiste_morceau {
 	font-size: 1.4em;
 	font-weight: bold;	
+	display: inline-block;
+	padding-bottom: 5px;
+}
+
+#album_morceau {
+	font-size: 1.2em;
 }
 
 #prochain_voxeur {
