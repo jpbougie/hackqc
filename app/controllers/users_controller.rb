@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def vote
     @user = User.find(params[:user_id])
     @user.jukes += params[:vote].to_i
-    REDIS.publish 'jukevox', {:user_id => @user_id.id, :jukes => @user.jukes, :type => 'jukes_update'}.to_json
+    REDIS.publish 'jukevox', {:user_id => @user.id, :jukes => @user.jukes, :type => 'jukes_update'}.to_json
     render :json => @user
   end
 
