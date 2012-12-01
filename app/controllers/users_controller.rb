@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def vote
-    @user.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @user.jukes += params[:vote]
   end
 
