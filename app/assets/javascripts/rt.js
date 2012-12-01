@@ -4,6 +4,7 @@ function debug(msg) {
 
 setupJukevox = function(host) {
   return function() {
+    var didWait = false;
     window.socket = io.connect(host);
     socket.on('authChallenge', function (data) {
       debug("Challenged for auth by server");
@@ -11,6 +12,7 @@ setupJukevox = function(host) {
     });
 
     socket.on('waiting', function(data) {
+      didWait = true;
       $('#feedback_top').html('It\'s your turn to pick!');
   	  $('#feedback_top').slideDown('fast');
   	  $('#coming_up_next').fadeOut('fast', function() {
@@ -20,7 +22,12 @@ setupJukevox = function(host) {
       debug("Waiting for an opponent...");
     });
 
-    socket.on('matchFound', function(data) { 
+    socket.on('matchFound', function(data) {
+      if (didWait)
+      	didWait = false;
+      else
+      	socket.emit('readyForNext');
+      	
       debug("Opponent found: " + data.other);
       getUserByToken(data.other, function(data) {
       	$('#toi_id').html(data.token);
