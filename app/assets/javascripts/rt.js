@@ -1,6 +1,6 @@
 function debug(msg) {
   $('#log').append('<div>' + msg + '</div>');
-};
+}
 
 setupJukevox = function(host) {
   return function() {
@@ -11,22 +11,22 @@ setupJukevox = function(host) {
     });
 
     socket.on('waiting', function(data) {
-      debug("Waiting for an opponent...")
+      debug("Waiting for an opponent...");
     });
 
     socket.on('matchFound', function(data) { 
-      debug("Opponent found: " + data.other)
+      debug("Opponent found: " + data.other);
       getUserByToken(data.other, function(data) {
-        $("#toi_photo").html("<img src=\"" + data.profile_url + "\" />")
-        $('#toi_nom').val(data.username)
-        $('#toi_jukes').val(data.jukes)
+        $("#toi_photo").html("<img src=\"//" + data.image_url + "\" />");
+        $('#toi_nom').html(data.username);
+        $('#toi_jukes').html(data.jukes);
       });
     });
 
     socket.on("matchEnded", function() {
       debug("Match ended");
     });
-    
+
     socket.on('play', function(data) {
       apiswf.rdio_play(data.song);
       $('#feedback_formulaire').fadeOut('fast', function() {
