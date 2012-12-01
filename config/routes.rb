@@ -3,6 +3,7 @@ Hackqc::Application.routes.draw do
   root :to => 'application#index'
   get :suggestions, :controller => 'application'
   match :login, :controller => 'users'
+  match :logout, :controller => 'users'
   post '/users/:user_id/vote', :to => 'users#vote'
   match '/auth/:provider/callback', to: 'sessions#create'
   get '/users/:user_id', :to => 'users#show'
