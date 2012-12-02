@@ -7,6 +7,7 @@ Hackqc::Application.routes.draw do
   post '/users/:user_id/vote', :to => 'users#vote'
   match '/auth/:provider/callback', to: 'users#create'
   get '/users/:user_id', :to => 'users#show'
+  get '/album/:key', :to => 'application#album'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

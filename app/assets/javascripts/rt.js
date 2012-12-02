@@ -63,7 +63,9 @@ setupJukevox = function(host) {
     /**** TOUNE COMMENCE À JOUER ****/
     socket.on('play', function(data) {
       apiswf.rdio_play(data.song);
-            
+
+      lookupTumbz(data.song);
+
       // Si c'est le tour de l'autre à jouer
       var toiId = $('#toi_id').html();
       if (data.turn == toiId) {
@@ -103,4 +105,21 @@ setupJukevox = function(host) {
  */
 function fireReadyForNext() {
   socket.emit('readyForNext');
+}
+
+function lookupTumbz(song) {
+  var albumId = $.get('/album/' + song, function(data) {
+    $.json("http://api.tum.bz/v1/products/search?q=" + data + "&apikey=nzaEhGbo4B9yAOn1GKveoSL003sexY9F", function(results) {
+      var prodId = results[0].id;
+      $.json("http://api.tum.bz/v1/users?limit=25&apikey=nzaEhGbo4B9yAOn1GKveoSL003sexY9F&tumbzed_product_up=" + prodId, function(people) {
+        showTumbz(people);
+      });
+    })
+  })
+}
+
+function showTumbz(people) {
+  for(i = 0; i < people.length; i++) {
+    $('div#tumbz_likes').append('<img src="' + people[i].avatar + '" />');
+  }
 }
