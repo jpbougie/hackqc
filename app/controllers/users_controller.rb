@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   layout "application"
   def create
-    @user = User.find_or_create_from(:auth_hash => auth_hash)
+    @user = User.where(:username => auth_hash.info.nickname).first
+    unless @user
+      @user = User.create(:username => auth_hash.info.nickname, :image_url => auth_hash.info.image,
+                         :profile_url => auth_hash.info.urls['User'], :follow_url => auth_hash.info.urls['Follow'] )
+    end
     session[:current_user] = @user
     redirect_to '/'
   end
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
     if request.post?
       user = RDIO.findUser('vanityName' => params[:username])
       if user
-        @user = User.find_or_create_by(:username => params[:username], :is_linked => true,
+        @user = User.find_or_create_by(:username => params[:username],
                                        :image_url => "cdn3.rd.io/#{user.baseIcon}", :profile_url => "rd.io#{user.url}")
       else
         @user = User.find_or_create_by(:username => params[:username])
