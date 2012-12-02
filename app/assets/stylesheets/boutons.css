@@ -44,7 +44,7 @@
 }
 
 .paspire {
-	background-color:#cdcd00;
+	background-color:#fd9d13;
 	border:2px solid #d5d900;
 	display:inline-block;
 	color:#ffffff;
@@ -56,7 +56,7 @@
 	text-shadow:1px 1px 1px #525252;
 	margin-bottom: 6px;
 }.paspire:hover {
-	background-color:#b0b046;
+	background-color:#e48d11;
 }.paspire:active {
 	position:relative;
 	top:1px;
