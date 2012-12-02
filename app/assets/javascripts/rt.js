@@ -29,14 +29,16 @@ setupJukevox = function(host) {
 
     /**** MATCH TROUVÉ ****/
     socket.on('matchFound', function(data) {
-      if (didWait)
+      if (didWait) {
         $('#vox').fadeOut('fast');
         $('#vox_choix').empty().show();
         $('#frm_suggerer').fadeOut('fast');
         $('#coming_up_next').fadeOut('fast');
       	didWait = false;
-      else
+      }
+      else {
       	socket.emit('readyForNext');
+      }
       	
       debug("Opponent found: " + data.other);
       getUserByToken(data.other, function(data) {
