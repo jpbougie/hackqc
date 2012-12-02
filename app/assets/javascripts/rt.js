@@ -120,6 +120,6 @@ function lookupTumbz(song) {
 
 function showTumbz(people) {
   for(i = 0; i < people.length; i++) {
-    $('div#tumbz_likes').append('<img src="' + people[i].avatar '" />');
+    $('div#tumbz_likes').append('<img src="' + people[i].avatar + '" />');
   }
 }
