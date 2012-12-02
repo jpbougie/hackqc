@@ -26,6 +26,7 @@ $(document).ready(function() {
   	$('#coming_up_next').hide();
   	$('#toi').hide();
   	$('#waiting_for_opponent').hide();
+  	$('#vox').hide();
   	
   	initAutocomplete();
   	initPisCa();
