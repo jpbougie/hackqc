@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     @user = User.where(:username => auth_hash.info.nickname).first
     unless @user
       @user = User.create(:username => auth_hash.info.nickname, :image_url => auth_hash.info.image,
-                         :profile_url => auth_hash.info.urls['User'], :follow_url => auth_hash.info.urls['Follow'] )
+                         :profile_url => auth_hash.info.urls['User'], :follow_url => auth_hash.info.urls['Follow'],
+                         :is_linked => true)
     end
     session[:current_user] = @user
     redirect_to '/'
