@@ -173,6 +173,8 @@ h1 {
 }
 
 #coming_up_next span {
+	display: inline-block;
+	margin-top: 8px;
 	font-weight: normal;
 	font-size: 1.4em;
 }
