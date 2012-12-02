@@ -7,6 +7,7 @@ class User
   field :jukes, :default => 0
   field :is_linked, :default => false
   field :profile_url
+  field :follow_url
 
   def as_json(*args)
     super.tap { |hash| hash["token"] = hash.delete "_id" }
