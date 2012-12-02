@@ -108,7 +108,7 @@ function fireReadyForNext() {
 }
 
 function lookupTumbz(song) {
-  var albumId = $.get('/albums/' + song, function(data) {
+  var albumId = $.get('/album/' + song, function(data) {
     $.json("http://api.tum.bz/v1/products/search?q=" + data + "&apikey=nzaEhGbo4B9yAOn1GKveoSL003sexY9F", function(results) {
       var prodId = results[0].id;
       $.json("http://api.tum.bz/v1/users?limit=25&apikey=nzaEhGbo4B9yAOn1GKveoSL003sexY9F&tumbzed_product_up=" + prodId, function(people) {
