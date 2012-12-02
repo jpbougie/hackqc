@@ -164,6 +164,11 @@ h1 {
 	padding: 8px 0 0 8px;
 }
 
+#coming_up_next {
+	padding: 10px;
+	background-color: #ccc;
+}
+
 #coming_up_next span {
 	font-weight: bold;
 }
