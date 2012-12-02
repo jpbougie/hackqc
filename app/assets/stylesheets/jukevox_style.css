@@ -220,6 +220,11 @@ h1 {
 	color: #09F;
 }
 
+#vox_choix {
+	font-size: 1.4em;
+	color: #666;
+}
+
 /* PAGE DE LOGIN
  ******************/
 #frm_login {
