@@ -13,7 +13,7 @@
 	background-color:#ededed;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:6px;
+	/*border-radius:6px;*/
 	border:2px solid #dcdcdc;
 	display:inline-block;
 	color:#777777;
@@ -43,7 +43,7 @@
 	background-color:#00da3e;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:6px;
+	/*border-radius:6px;*/
 	border:2px solid #00da3e;
 	display:inline-block;
 	color:#ffffff;
@@ -74,7 +74,7 @@
 	background-color:#eded00;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:6px;
+	/*border-radius:6px;*/
 	border:2px solid #d5d900;
 	display:inline-block;
 	color:#ffffff;
@@ -105,7 +105,7 @@
 	background-color:#eb0000;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:6px;
+	/*border-radius:6px;*/
 	border:2px solid #d48e8e;
 	display:inline-block;
 	color:#ffffff;
