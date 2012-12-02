@@ -30,6 +30,10 @@ setupJukevox = function(host) {
     /**** MATCH TROUVÉ ****/
     socket.on('matchFound', function(data) {
       if (didWait)
+        $('#vox').fadeOut('fast');
+        $('#vox_choix').empty().show();
+        $('#frm_suggerer').fadeOut('fast');
+        $('#coming_up_next').fadeOut('fast');
       	didWait = false;
       else
       	socket.emit('readyForNext');
@@ -52,6 +56,7 @@ setupJukevox = function(host) {
       $('#toi').fadeOut('fast', function() {
       	$('#waiting_for_opponent').fadeIn('fast');
       });
+      
       debug("Match ended");
     });
 
@@ -74,6 +79,8 @@ setupJukevox = function(host) {
   	    });
   	    $('#vox').fadeIn('fast');
       }
+      
+      $('#vox_choix').empty().show();
       
       setTimeout(fireReadyForNext, 30000);
     });

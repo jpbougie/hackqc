@@ -99,16 +99,25 @@ function initPisCa() {
 function initVotes() {
 	$('.jtrippe').click(function(e) {
 		e.preventDefault();
+		$('#vox').fadeOut('fast', function() {
+		  $('#vox_choix').html('That\'s dope!').fadeIn('fast');
+		});
 		traiterEnvoiJukes('2');
 	});
 	
 	$('.paspire').click(function(e) {
 		e.preventDefault();
+		$('#vox').fadeOut('fast', function() {
+		  $('#vox_choix').html('Pretty good').fadeIn('fast');
+		});
 		traiterEnvoiJukes('1');
 	});
 	
 	$('.bofouin').click(function(e) {
 		e.preventDefault();
+		$('#vox').fadeOut('fast', function() {
+		  $('#vox_choix').html('Meh.').fadeIn('fast');
+		});
 		traiterEnvoiJukes('-1');
 	});	
 }
