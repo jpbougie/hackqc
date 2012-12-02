@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def album
-    render :json => RDIO.get(:keys => params["key"]).result['albumArtistKey']
+    render :json => RDIO.get(:keys => params["key"])[params['key']]['albumArtistKey']
   end
 end
