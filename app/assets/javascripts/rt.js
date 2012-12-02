@@ -30,10 +30,8 @@ setupJukevox = function(host) {
     /**** MATCH TROUVÉ ****/
     socket.on('matchFound', function(data) {
       if (didWait) {
-        $('#vox').fadeOut('fast');
-        $('#vox_choix').empty().show();
-        $('#frm_suggerer').fadeOut('fast');
-        $('#coming_up_next').fadeOut('fast');
+        /*$('#vox').fadeOut('fast');
+        $('#vox_choix').empty().show();*/
       	didWait = false;
       }
       else {
