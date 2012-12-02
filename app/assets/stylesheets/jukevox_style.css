@@ -66,6 +66,11 @@ h1 {
 	/* background-color: #ccc; */
 }
 
+#waiting_for_opponent img {
+	position: relative;
+	top: 6px;
+}
+
 #wrapper_toi {
 	height: 45.8em;
 }
