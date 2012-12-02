@@ -30,8 +30,6 @@ setupJukevox = function(host) {
     /**** MATCH TROUVÉ ****/
     socket.on('matchFound', function(data) {
       if (didWait) {
-        /*$('#vox').fadeOut('fast');
-        $('#vox_choix').empty().show();*/
       	didWait = false;
       }
       else {
@@ -56,6 +54,8 @@ setupJukevox = function(host) {
       $('#toi').fadeOut('fast', function() {
       	$('#waiting_for_opponent').fadeIn('fast');
       });
+      
+      $('#vox').fadeOut('fast');
       
       debug("Match ended");
     });
