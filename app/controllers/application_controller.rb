@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def suggestions
     render :json => RDIO.searchSuggestions(:query => params[:query], :types => 'Track')
   end
+
+  def album
+    render :json => RDIO.get(:keys => params["key"]).result['albumArtistKey']
+  end
 end
